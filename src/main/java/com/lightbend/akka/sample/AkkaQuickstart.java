@@ -32,9 +32,12 @@ public class AkkaQuickstart {
 
       helloGreeter.tell(new WhoToGreet("Java"), ActorRef.noSender());
       helloGreeter.tell(new Greet(), ActorRef.noSender());
+      helloGreeter.tell(new Greet(), ActorRef.noSender());
 
       goodDayGreeter.tell(new WhoToGreet("Play"), ActorRef.noSender());
       goodDayGreeter.tell(new Greet(), ActorRef.noSender());
+      goodDayGreeter.tell(new Greet(), ActorRef.noSender());
+
       //#main-send-messages
 
       System.out.println(">>> Press ENTER to exit <<<");
