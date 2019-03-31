@@ -24,6 +24,10 @@ public class Greeter extends AbstractActor {
   static public class Greet {
     public Greet() {
     }
+
+    public Greet(String msg){
+
+    }
   }
   //#greeter-messages
 

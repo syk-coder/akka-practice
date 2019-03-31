@@ -28,9 +28,13 @@ public class AkkaQuickstart {
       howdyGreeter.tell(new Greet(), ActorRef.noSender());
 
       howdyGreeter.tell(new WhoToGreet("Lightbend"), ActorRef.noSender());
+      howdyGreeter.tell(new WhoToGreet("Lightbend1"), ActorRef.noSender());
+      howdyGreeter.tell(new WhoToGreet("Lightbend2"), ActorRef.noSender());
       howdyGreeter.tell(new Greet(), ActorRef.noSender());
 
       helloGreeter.tell(new WhoToGreet("Java"), ActorRef.noSender());
+      helloGreeter.tell(new WhoToGreet("Java1"), ActorRef.noSender());
+      helloGreeter.tell(new WhoToGreet("Java2"), ActorRef.noSender());
       helloGreeter.tell(new Greet(), ActorRef.noSender());
       helloGreeter.tell(new Greet(), ActorRef.noSender());
 
