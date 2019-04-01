@@ -1,3 +1,6 @@
 *.iml
 /target
 *.idea
+*.sbt
+project/
+sbt*
