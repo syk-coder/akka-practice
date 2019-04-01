@@ -14,11 +14,13 @@ public class PrimeWorker extends UntypedActor{
 
             for (long l = numberRangeMessage.getStartNumber(); l < numberRangeMessage.getEndNumber(); l++) {
                 if (isPrime(l)){
-                    
+                    result.getResults().add(l);
                 }
+
+                getSender().tell(result,getSelf());
             }
-
-
+        }else {
+            unhandled(message);
         }
     }
 
