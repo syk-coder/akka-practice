@@ -13,11 +13,11 @@ public class PrimeMaster extends UntypedActor {
     private int numOfResults = 0;
     private Result finalResults = new Result();
 
-    public PrimeMaster(ActorRef workerRouter, ActorRef listener, int numOfWorkers) {
+    public PrimeMaster(ActorRef listener,final int numOfWorkers) {
         this.listener = listener;
         this.numOfWorkers = numOfWorkers;
 
-        workerRouter = this.getContext()
+        this.workerRouter = this.getContext()
                 .actorOf( Props.create(PrimeWorker::new)
                         .withRouter( new RoundRobinPool( numOfWorkers )), "workerRouter" );
     }
