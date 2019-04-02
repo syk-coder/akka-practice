@@ -1,4 +1,4 @@
-package com.example;
+package com.lightbend.akka.example;
 
 import akka.actor.AbstractActor;
 import akka.actor.AbstractActor.Receive;

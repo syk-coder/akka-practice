@@ -3,7 +3,7 @@ package com.primeCalculator;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
-import akka.routing.RoundRobinPool;
+import akka.routing.RoundRobinRouter;
 
 public class PrimeMaster extends UntypedActor {
 
@@ -13,18 +13,18 @@ public class PrimeMaster extends UntypedActor {
     private int numOfResults = 0;
     private Result finalResults = new Result();
 
-    public PrimeMaster(ActorRef listener,final int numOfWorkers) {
+    public PrimeMaster(final int numOfWorkers,ActorRef listener) {
         this.listener = listener;
         this.numOfWorkers = numOfWorkers;
 
         this.workerRouter = this.getContext()
-                .actorOf( Props.create(PrimeWorker::new)
-                        .withRouter( new RoundRobinPool( numOfWorkers )), "workerRouter" );
+                .actorOf( new Props(PrimeWorker::new)
+                        .withRouter( new RoundRobinRouter( numOfWorkers )), "workerRouter" );
     }
 
 
     @Override
-    public void onReceive(Object message) throws Throwable {
+    public void onReceive(Object message) {
 
         if (message instanceof NumberRangeMessage){
 

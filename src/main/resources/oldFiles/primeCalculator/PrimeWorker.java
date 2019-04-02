@@ -4,7 +4,7 @@ import akka.actor.UntypedActor;
 
 public class PrimeWorker extends UntypedActor{
     @Override
-    public void onReceive(Object message) throws Throwable {
+    public void onReceive(Object message) {
         if (message instanceof NumberRangeMessage){
 
             NumberRangeMessage numberRangeMessage = (NumberRangeMessage) message;
